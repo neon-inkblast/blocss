@@ -13,6 +13,7 @@ h5,
 h6 {
   margin-top: var(--space-2);
   margin-bottom: var(--space-2);
+  text-align: center;
 }
 
 h1 {
@@ -41,4 +42,35 @@ h6 {
 
 p {
   margin-bottom: var(--space-2);
+}
+
+.flex-between {
+  display: flex;
+  width: 100%;
+  padding: var(--space-2);
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+a {
+  padding: var(--space-1);
+  text-decoration: none;
+  text-align: center;
+}
+
+main {
+  margin: var(--space-1) var(--space-2);
+  border: 2px solid var(--c-border);
+  min-height: 50vh;
+}
+
+.bloc-dropper {
+  width: 100%;
+  height: 500px;
+  position: relative;
 }
