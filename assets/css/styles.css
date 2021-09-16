@@ -73,4 +73,55 @@ main {
   width: 100%;
   height: 500px;
   position: relative;
+  --drift: 100px;
+  --start: 0;
+  --height: 450px;
+}
+
+.bloc {
+  height: 50px;
+  width: 50px;
+  border: 1px solid var(--c-border);
+  animation: drop 1s cubic-bezier(1, 0, 0, 1) 1 forwards;
+  position: absolute;
+}
+
+@keyframes drop {
+  0% {
+    transform: rotate(0deg);
+    top: -100px;
+    left: --start;
+  }
+  20% {
+    transform: rotate(90deg);
+    top: var(--height);
+    left: calc((var(--drift) * 0.66) + var(--start));
+  }
+  40% {
+    top: calc(var(--height) / 2);
+    left: calc(var(--drift) + var(--start));
+  }
+  60% {
+    transform: rotate(180deg);
+    top: var(--height);
+    left: calc((var(--drift) * 1.5) + var(--start));
+  }
+  75% {
+    top: calc(var(--height) * 0.75);
+    left: calc((var(--drift) * 1.7) + var(--start));
+  }
+  90% {
+    transform: rotate(270deg);
+    top: var(--height);
+    left: calc((var(--drift) * 1.8) + var(--start));
+  }
+  95% {
+    top: calc(var(--height) * 0.9);
+    left: calc((var(--drift) * 1.9) + var(--start));
+  }
+  100% {
+    transform: rotate(360deg);
+    top: var(--height);
+    left: calc((var(--drift) * 2) + var(--start));
+  }
 }
