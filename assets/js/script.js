@@ -39,4 +39,18 @@ function stopTimer() {
     clearInterval(timerHandle);
 }
 
-dropBtn.addEventListener("click", startTimer);
+function onDropClick() {
+    dropBtn.removeEventListener('click', onDropClick);
+    dropBtn.addEventListener('click', onStopClick);
+    dropBtn.textContent = "Stop";
+    startTimer();
+}
+
+function onStopClick() {
+    dropBtn.removeEventListener('click', onStopClick);
+    dropBtn.addEventListener('click', onDropClick);
+    dropBtn.textContent = "Drop";
+    stopTimer();
+}
+
+dropBtn.addEventListener("click", onDropClick);
