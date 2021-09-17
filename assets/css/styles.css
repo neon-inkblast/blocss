@@ -88,7 +88,7 @@ main {
   height: 50px;
   width: 50px;
   border: 1px solid var(--c-border);
-  animation: drop 1s 1 forwards;
+  animation: drop 1.5s 1 forwards;
   position: absolute;
 }
 
