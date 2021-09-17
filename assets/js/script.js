@@ -1,5 +1,7 @@
 const dropBtn = document.getElementById("drop-btn");
 const dropper = document.querySelector(".bloc-dropper");
+const displayCounter = document.querySelector(".bloc-counter");
+
 let count = 1;
 let timerHandle = null;
 let timerDelay = 500;
@@ -25,6 +27,12 @@ function dropBox() {
   newDiv.textContent = count++;
   dropper.append(wrapper);
   wrapper.append(newDiv);
+
+  updateCounterText();
+}
+
+function updateCounterText() {
+  displayCounter.textContent = `Blocks dropped: ${count}`;
 }
 
 function startTimer() {

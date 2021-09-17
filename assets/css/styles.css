@@ -19,6 +19,8 @@ h6 {
 h1 {
   font-size: 2rem;
   font-weight: 700;
+  flex: 1 1 auto;
+  text-align: right;
 }
 
 h2 {
@@ -52,11 +54,6 @@ p {
   align-items: center;
 }
 
-h1 {
-  flex: 1 1 auto;
-  text-align: right;
-}
-
 a {
   padding: var(--space-1);
   text-decoration: none;
@@ -67,6 +64,15 @@ main {
   margin: var(--space-1) var(--space-2);
   border: 2px solid var(--c-border);
   min-height: 50vh;
+  position: relative;
+}
+
+.bloc-counter {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .bloc-dropper {
