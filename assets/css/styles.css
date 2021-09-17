@@ -82,7 +82,7 @@ main {
   height: 50px;
   width: 50px;
   border: 1px solid var(--c-border);
-  animation: drop 1s cubic-bezier(1, 0, 0, 1) 1 forwards;
+  animation: drop 1s 1 forwards;
   position: absolute;
 }
 
@@ -91,37 +91,45 @@ main {
     transform: rotate(0deg);
     top: -100px;
     left: --start;
+    animation-timing-function: ease-in;
   }
   20% {
     transform: rotate(90deg);
     top: var(--height);
     left: calc((var(--drift) * 0.66) + var(--start));
+    animation-timing-function: ease-out;
   }
   40% {
     top: calc(var(--height) / 2);
     left: calc(var(--drift) + var(--start));
+    animation-timing-function: ease-in;
   }
   60% {
     transform: rotate(180deg);
     top: var(--height);
     left: calc((var(--drift) * 1.5) + var(--start));
+    animation-timing-function: ease-out;
   }
   75% {
     top: calc(var(--height) * 0.75);
     left: calc((var(--drift) * 1.7) + var(--start));
+    animation-timing-function: ease-in;
   }
   90% {
     transform: rotate(270deg);
     top: var(--height);
     left: calc((var(--drift) * 1.8) + var(--start));
+    animation-timing-function: ease-out;
   }
   95% {
     top: calc(var(--height) * 0.9);
     left: calc((var(--drift) * 1.9) + var(--start));
+    animation-timing-function: ease-in;
   }
   100% {
     transform: rotate(360deg);
     top: var(--height);
     left: calc((var(--drift) * 2) + var(--start));
+    animation-timing-function: ease-out;
   }
 }
