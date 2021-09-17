@@ -13,7 +13,7 @@ function genRandom(range) {
 
 function dropBox() {
   const width = dropper.offsetWidth;
-  const colours = ["var(--c-primary)", "var(--c-secondary)", "var(--c-background)", "var(--c-info)"];
+  const colours = ["var(--c-primary)", "var(--c-secondary)", "var(--c-background)"];
   const colour = colours[genRandom(colours.length)];
   const x = genRandom(width - 50);
   const drift = driftEnabled ? Math.round(genRandom(width - x - 100) / 2) : 0;
