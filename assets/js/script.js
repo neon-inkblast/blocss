@@ -4,7 +4,7 @@ const displayCounter = document.querySelector(".bloc-counter");
 
 let count = 1;
 let timerHandle = null;
-let timerDelay = 500;
+let timerDelay = 1500;
 let driftEnabled = false;
 
 function genRandom(range) {

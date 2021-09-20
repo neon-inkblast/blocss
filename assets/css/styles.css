@@ -88,7 +88,7 @@ main {
   height: 50px;
   width: 50px;
   border: 1px solid var(--c-border);
-  animation: drop 1.5s 1 forwards;
+  animation: drop 2s 1 forwards;
   position: absolute;
 }
 
@@ -99,37 +99,57 @@ main {
     left: --start;
     animation-timing-function: ease-in;
   }
-  20% {
+  17% {
     transform: rotate(90deg);
     top: var(--height);
-    left: calc((var(--drift) * 0.66) + var(--start));
+    left: calc((var(--drift) * 0.4) + var(--start));
     animation-timing-function: ease-out;
   }
-  40% {
-    top: calc(var(--height) / 2);
-    left: calc(var(--drift) + var(--start));
-    animation-timing-function: ease-in;
-  }
-  60% {
+  34% {
     transform: rotate(180deg);
-    top: var(--height);
-    left: calc((var(--drift) * 1.5) + var(--start));
-    animation-timing-function: ease-out;
-  }
-  75% {
-    top: calc(var(--height) * 0.75);
-    left: calc((var(--drift) * 1.7) + var(--start));
+    top: calc(var(--height) * 0.33);
+    left: calc((var(--drift) * 0.8) + var(--start));
     animation-timing-function: ease-in;
   }
-  90% {
+  48% {
     transform: rotate(270deg);
     top: var(--height);
+    left: calc((var(--drift) * 1.1) + var(--start));
+    animation-timing-function: ease-out;
+  }
+  62% {
+    top: calc(var(--height) * 0.5);
+    left: calc((var(--drift) * 1.4) + var(--start));
+    animation-timing-function: ease-in;
+  }
+  72% {
+    top: var(--height);
+    left: calc((var(--drift) * 1.6) + var(--start));
+    animation-timing-function: ease-out;
+  }
+  82% {
+    top: calc(var(--height) * 0.75);
+    left: calc((var(--drift) * 1.8) + var(--start));
+    animation-timing-function: ease-in;
+  }
+  88% {
+    top: calc(var(--height));
     left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-out;
   }
-  95% {
+  94% {
+    top: calc(var(--height) * 0.8);
+    left: calc((var(--drift) * 1.8) + var(--start));
+    animation-timing-function: ease-in;
+  }
+  96% {
+    top: calc(var(--height));
+    left: calc((var(--drift) * 1.8) + var(--start));
+    animation-timing-function: ease-out;
+  }
+  98% {
     top: calc(var(--height) * 0.9);
-    left: calc((var(--drift) * 1.9) + var(--start));
+    left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-in;
   }
   100% {
