@@ -1,11 +1,12 @@
 const dropBtn = document.getElementById("drop-btn");
+const slideBtn = document.getElementById("slide-btn");
 const dropper = document.querySelector(".bloc-dropper");
 const displayCounter = document.querySelector(".bloc-counter");
 
 let count = 1;
 let timerHandle = null;
 let timerDelay = 1500;
-let driftEnabled = false;
+let slideEnabled = false;
 
 function genRandom(range) {
   return Math.floor(Math.random() * range);
@@ -16,12 +17,12 @@ function dropBox() {
   const colours = ["var(--c-primary)", "var(--c-secondary)", "var(--c-background)"];
   const colour = colours[genRandom(colours.length)];
   const x = genRandom(width - 50);
-  const drift = driftEnabled ? Math.round(genRandom(width - x - 100) / 2) : 0;
+  const slide = slideEnabled ? Math.round(genRandom(width - x - 100) / 2) : 0;
 
   updateCounterText();
 
   const wrapper = document.createElement("div");
-  wrapper.style.setProperty("--drift", drift + "px");
+  wrapper.style.setProperty("--slide", slide + "px");
   wrapper.style.setProperty("--start", x + "px");
 
   const newDiv = document.createElement("div");
@@ -48,16 +49,27 @@ function stopTimer() {
 
 function onDropClick() {
   dropBtn.removeEventListener("click", onDropClick);
+  dropBtn.classList.remove("btn-primary");
   dropBtn.addEventListener("click", onStopClick);
+  dropBtn.classList.add("btn-secondary");
   dropBtn.textContent = "Stop";
   startTimer();
 }
 
 function onStopClick() {
   dropBtn.removeEventListener("click", onStopClick);
+  dropBtn.classList.remove("btn-secondary");
   dropBtn.addEventListener("click", onDropClick);
+  dropBtn.classList.add("btn-primary");
   dropBtn.textContent = "Drop";
   stopTimer();
 }
 
+function toggleSlide() {
+  slideEnabled = !slideEnabled;
+  slideBtn.textContent = slideEnabled ? "Slide [ON]" : "Slide [OFF]";
+  slideBtn.class = `btn btn-${slideEnabled ? "primary" : "secondary"}`;
+}
+
 dropBtn.addEventListener("click", onDropClick);
+slideBtn.addEventListener("click", toggleSlide);

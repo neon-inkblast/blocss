@@ -79,7 +79,7 @@ main {
   width: 100%;
   height: 500px;
   position: relative;
-  --drift: 100px;
+  --slide: 100px;
   --start: 0;
   --height: 450px;
 }
@@ -97,7 +97,7 @@ main {
     left: var(--start);
   }
   100% {
-    left: calc((var(--drift) * 2) + var(--start));
+    left: calc((var(--slide) * 2) + var(--start));
   }
 }
 
