@@ -5,8 +5,9 @@ const displayCounter = document.querySelector(".bloc-counter");
 
 let count = 1;
 let timerHandle = null;
-let timerDelay = 1500;
+let timerDelay = 1000;
 let slideEnabled = false;
+const blockWidth = 50;
 
 function genRandom(range) {
   return Math.floor(Math.random() * range);
@@ -16,18 +17,28 @@ function dropBox() {
   const width = dropper.offsetWidth;
   const colours = ["var(--c-primary)", "var(--c-secondary)", "var(--c-background)"];
   const colour = colours[genRandom(colours.length)];
-  const x = genRandom(width - 50);
-  const slide = slideEnabled ? Math.round(genRandom(width - x - 100) / 2) : 0;
+  const xStart = genRandom(width - blockWidth);
+  let slide = 0;
+  if (slideEnabled) {
+    const slideDirection = genRandom(2);
+    if (slideDirection === 0) {
+      // slide left - negative l
+      slide = -Math.round(genRandom(width - (width - xStart)) / 2);
+    } else {
+      // slide right - positive l
+      slide = Math.round(genRandom(width - xStart - blockWidth) / 2);
+    }
+  }
 
   updateCounterText();
 
   const wrapper = document.createElement("div");
   wrapper.style.setProperty("--slide", slide + "px");
-  wrapper.style.setProperty("--start", x + "px");
+  wrapper.style.setProperty("--start", xStart + "px");
 
   const newDiv = document.createElement("div");
   newDiv.classList.add("bloc");
-  newDiv.setAttribute("style", `left: ${x}px; background-color: ${colour};`);
+  newDiv.setAttribute("style", `left: ${xStart}px; background-color: ${colour};`);
   newDiv.textContent = count++;
   dropper.append(wrapper);
   wrapper.append(newDiv);
@@ -68,7 +79,7 @@ function onStopClick() {
 function toggleSlide() {
   slideEnabled = !slideEnabled;
   slideBtn.textContent = slideEnabled ? "Slide [ON]" : "Slide [OFF]";
-  slideBtn.class = `btn btn-${slideEnabled ? "primary" : "secondary"}`;
+  slideBtn.setAttribute("class", `btn btn-${slideEnabled ? "secondary" : "primary"}`);
 }
 
 dropBtn.addEventListener("click", onDropClick);
