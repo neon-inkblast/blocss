@@ -88,74 +88,71 @@ main {
   height: 50px;
   width: 50px;
   border: 1px solid var(--c-border);
-  animation: drop 2s 1 forwards;
+  animation: drop 2s 1 forwards, slide 2s ease-out 1 forwards;
   position: absolute;
+}
+
+@keyframes slide {
+  0% {
+    left: var(--start);
+  }
+  100% {
+    left: calc((var(--drift) * 2) + var(--start));
+  }
 }
 
 @keyframes drop {
   0% {
     transform: rotate(0deg);
     top: -100px;
-    left: --start;
     animation-timing-function: ease-in;
   }
   17% {
     transform: rotate(90deg);
     top: var(--height);
-    left: calc((var(--drift) * 0.4) + var(--start));
     animation-timing-function: ease-out;
   }
   34% {
     transform: rotate(180deg);
     top: calc(var(--height) * 0.33);
-    left: calc((var(--drift) * 0.8) + var(--start));
     animation-timing-function: ease-in;
   }
   48% {
     transform: rotate(270deg);
     top: var(--height);
-    left: calc((var(--drift) * 1.1) + var(--start));
     animation-timing-function: ease-out;
   }
   62% {
     top: calc(var(--height) * 0.5);
-    left: calc((var(--drift) * 1.4) + var(--start));
     animation-timing-function: ease-in;
   }
   72% {
     top: var(--height);
-    left: calc((var(--drift) * 1.6) + var(--start));
     animation-timing-function: ease-out;
   }
   82% {
     top: calc(var(--height) * 0.75);
-    left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-in;
   }
   88% {
     top: calc(var(--height));
-    left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-out;
   }
   94% {
     top: calc(var(--height) * 0.8);
-    left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-in;
   }
   96% {
     top: calc(var(--height));
-    left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-out;
   }
   98% {
     top: calc(var(--height) * 0.9);
-    left: calc((var(--drift) * 1.8) + var(--start));
     animation-timing-function: ease-in;
   }
   100% {
     transform: rotate(360deg);
     top: var(--height);
-    left: calc((var(--drift) * 2) + var(--start));
     animation-timing-function: ease-out;
   }
 }
